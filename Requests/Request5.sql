@@ -1,7 +1,6 @@
 -- total propose premium
 
-  SELECT COUNT(*) AS total_policies,
-  SUM(proposed_premium) AS total_proposed_premium
+  SELECT SUM(proposed_premium) AS total_proposed_premium
   FROM quotation;
 
 -- Total policy
@@ -19,10 +18,15 @@ JOIN insurance_policy_benefit ip ON ic.insurance_policy_id = ip.id;
 
 -- Total prospect and number of prospect campany
 
-SELECT COUNT(DISTINCT e.id)-
-COUNT(DISTINCT i.employee_id) as total_prospect
+  SELECT  COUNT(e.id) - COUNT(ic.id) AS total_prospect
   FROM employee e
-  LEFT JOIN insured_coverage i ON i.employee_id=e.id
+  LEFT JOIN insured_coverage ic ON e.id = ic.employee_id
+
+
+  SELECT count(id) AS prospect_company from quotation 
+    where quotation_status = 'Pending' 
+
+
 -- Total HF partner and number of not partner
 
 SELECT COUNT(*) - COUNT(CASE WHEN is_partner_hf = FALSE THEN 1 END)AS total_hf_partners,

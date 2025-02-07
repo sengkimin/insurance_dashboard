@@ -1,5 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTotalQuotation } from "@/services/dashboard/get_total_quotation";
+import { getTotalAveragePremium } from "@/services/dashboard/get-total-average-premium";
+import { getTotalPendingQuotation } from "@/services/dashboard/get-total-pending-quotation";
+import { getTotalMaxPremium } from "@/services/dashboard/get-total-max-premium-quotation";
+import { getTotalApprovedPremium } from "@/services/dashboard/get-approved-quotation";
+import { getTotalApprovedCompany } from "@/services/dashboard/get-total-approved-company";
 
 
 
@@ -9,6 +14,11 @@ export async function QuotationDashboardCards() {
   const totalSuppliers = 10;
 
   const totalquotation = await getTotalQuotation();
+  const totalAveragePremium = await getTotalAveragePremium();
+  const totalPendingQuotation = await getTotalPendingQuotation();
+  const totalMaxPremium = await getTotalMaxPremium();
+  const totalApprovedPremium = await getTotalApprovedPremium();
+  const totalApprovedCompany = await getTotalApprovedCompany();
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -30,7 +40,7 @@ export async function QuotationDashboardCards() {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">{Number(totalquotation)}</div>
-          <p className="text-xs text-muted-foreground">Avg. Premium: $3,000</p>
+          <p className="text-xs text-muted-foreground">Avg. Premium: ${Number(totalAveragePremium)}</p>
         </CardContent>
       </Card>
       <Card className="bg-orange-50">
@@ -53,8 +63,8 @@ export async function QuotationDashboardCards() {
           </svg>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{totalProducts}</div>
-          <p className="text-xs text-muted-foreground">Max Premium: $6,000</p>
+          <div className="text-2xl font-bold">{Number(totalPendingQuotation)}</div>
+          <p className="text-xs text-muted-foreground">Max Premium: ${Number(totalMaxPremium)}</p>
         </CardContent>
       </Card>
       <Card className="bg-blue-50">
@@ -78,8 +88,8 @@ export async function QuotationDashboardCards() {
           </svg>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{totalCustomers}</div>
-          <p className="text-xs text-muted-foreground">Number of company: 2</p>
+          <div className="text-2xl font-bold">{Number(totalApprovedPremium)}</div>
+          <p className="text-xs text-muted-foreground">Number of company: {Number(totalApprovedCompany)}</p>
         </CardContent>
       </Card>
       <Card className="bg-green-50">
