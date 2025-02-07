@@ -321,6 +321,10 @@ VALUES
 (51, 3, 'EMP051', 'Chenda Ly', '2010-05-03', 'Female', '+855 93 123 051', 'chenda.ly@cambodiaindustry.com'), -- Under 18
 (52, 3, 'EMP052', 'Sarin Pou', '1992-12-03', 'Male', '+855 93 123 052', 'sarin.pou@cambodiaindustry.com');
 
+
+
+
+
 INSERT INTO employee (id, company_id, staff_id, full_name, date_of_birth, gender, phone_number, email)
 VALUES
 (53, 3, 'EMP053', 'Reach Sovann', '1990-05-12', 'Male', '+855 94 123 053', 'reach.sovann@cambodiaindustry.com'),
@@ -358,6 +362,10 @@ VALUES
 (81, 4, 'EMP081', 'Oliver Becker', '1989-07-23', 'Male', '+33 6 12 34 56 91', 'oliver.becker@europebusiness.com'),
 (82, 4, 'EMP082', 'Clara Lefevre', '1997-09-29', 'Female', '+33 6 12 34 56 92', 'clara.lefevre@europebusiness.com'),
 (83, 4, 'EMP083', 'Noah Dubois', '2009-11-14', 'Male', '+33 6 12 34 56 93', 'noah.dubois@europebusiness.com'); -- Under 18
+
+
+
+
 
 INSERT INTO insured_coverage (employee_id, insurance_policy_id, date_of_birth, member_card_number, coverage_start_date, coverage_end_date, status)
 VALUES
